@@ -11,5 +11,13 @@ module.exports = {
     .catch(error => res.send(500, { error: `Erro em banco de dados: ${error}` })),
 	
   add: (req, res) => res.view('add'),
+
+  create: (req, res) => User.create({
+    name: req.body.nome,
+    age: req.body.idade
+  })
+    .then(() => res.redirect('/user/list'))
+    .catch(error => res.send(500, { error: `Erro em banco de dados: ${error}` })),
+
 };
 
