@@ -19,5 +19,8 @@ module.exports = {
     .then(() => res.redirect('/user/list'))
     .catch(error => res.send(500, { error: `Erro em banco de dados: ${error}` })),
 
+  delete: (req, res) => User.destroy({ id: req.params.id })
+    .then(() => res.redirect('/user/list'))
+    .catch(error => res.send(500, { error: `Erro em banco de dados: ${error}` })),
 };
 
