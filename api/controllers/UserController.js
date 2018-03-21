@@ -10,5 +10,6 @@ module.exports = {
     .then(users => res.view('list', { users: users }))
     .catch(error => res.send(500, { error: `Erro em banco de dados: ${error}` })),
 	
+  add: (req, res) => res.view('add'),
 };
 
